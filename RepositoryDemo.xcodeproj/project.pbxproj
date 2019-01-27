@@ -14,6 +14,7 @@
 		B0E6B11F21FDEC0700E8C305 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B0E6B11E21FDEC0700E8C305 /* Assets.xcassets */; };
 		B0E6B12221FDEC0700E8C305 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E6B12021FDEC0700E8C305 /* LaunchScreen.storyboard */; };
 		B0E6B12D21FDEC0700E8C305 /* RepositoryDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B12C21FDEC0700E8C305 /* RepositoryDemoTests.swift */; };
+		B0E6B13D21FDEE1100E8C305 /* JobListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B13C21FDEE1100E8C305 /* JobListVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		B0E6B12821FDEC0700E8C305 /* RepositoryDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RepositoryDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B0E6B12C21FDEC0700E8C305 /* RepositoryDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDemoTests.swift; sourceTree = "<group>"; };
 		B0E6B12E21FDEC0700E8C305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B0E6B13C21FDEE1100E8C305 /* JobListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListVC.swift; sourceTree = "<group>"; };
 		BDF6C8DD5CA16EEF6BF67893 /* Pods-RepositoryDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepositoryDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RepositoryDemo/Pods-RepositoryDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F635DA29E2F788C3E5D54E4D /* Pods-RepositoryDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepositoryDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepositoryDemoTests/Pods-RepositoryDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC16F44C500544CAA7625772 /* Pods-RepositoryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepositoryDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepositoryDemo/Pods-RepositoryDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				B0E6B11721FDEC0200E8C305 /* AppDelegate.swift */,
+				B0E6B13C21FDEE1100E8C305 /* JobListVC.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -314,6 +317,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0E6B13D21FDEE1100E8C305 /* JobListVC.swift in Sources */,
 				B0E6B11821FDEC0200E8C305 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
