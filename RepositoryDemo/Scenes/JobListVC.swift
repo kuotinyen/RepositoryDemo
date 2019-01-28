@@ -26,13 +26,26 @@ class JobListVC: UIViewController {
         return tv
     }()
     
-    var displayViewModels = ["1", "2"]
+    lazy var hotJobsVM: HotJobsViewModel = {
+        var vm = HotJobsViewModel()
+        vm.reloadTableViewClosure = { [weak self] in
+            guard let self = self else { return }
+            self.tableView.reloadData()
+        }
+        return vm
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         setupViews()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        hotJobsVM.loadData()
     }
     
     func setupViews() {
@@ -52,12 +65,13 @@ class JobListVC: UIViewController {
 extension JobListVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return displayViewModels.count
+        return hotJobsVM.displayViewModels.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueCell(forIndexPath: indexPath) as JobListCell
+        cell.viewModel = hotJobsVM.displayViewModels[indexPath.row]
         return cell
     }
     
