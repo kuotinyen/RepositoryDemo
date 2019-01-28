@@ -44,6 +44,12 @@ class ShowJobVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
+        if let job = RealmDB.shared.fetchJob(with: viewModel.job.jobId) {
+            print("local job -> \(job.entity)")
+        } else {
+            print("no local job")
+        }
+        
         viewModel.loadData()
     }
     
