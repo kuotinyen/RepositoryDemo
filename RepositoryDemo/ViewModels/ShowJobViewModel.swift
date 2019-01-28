@@ -19,7 +19,8 @@ class ShowJobViewModel {
     }
     
     func loadData() {
-        JobsAPI.shared.fetchJob(by: jobId) { [weak self] (result) in
+
+        JobRepository.shared.fetchJob(by: jobId) { [weak self] (result) in
             guard let self = self else { return }
             
             switch result {

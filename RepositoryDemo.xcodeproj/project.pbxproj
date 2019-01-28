@@ -34,6 +34,7 @@
 		B0E6B16B21FEB50F00E8C305 /* JobPinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B16A21FEB50F00E8C305 /* JobPinModel.swift */; };
 		B0E6B16D21FEBAFD00E8C305 /* ShowJobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B16C21FEBAFD00E8C305 /* ShowJobViewModel.swift */; };
 		B0E6B16F21FED5E800E8C305 /* RealmDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B16E21FED5E800E8C305 /* RealmDB.swift */; };
+		B0E6B17221FEE19000E8C305 /* JobRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B17121FEE19000E8C305 /* JobRepository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		B0E6B16A21FEB50F00E8C305 /* JobPinModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobPinModel.swift; sourceTree = "<group>"; };
 		B0E6B16C21FEBAFD00E8C305 /* ShowJobViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowJobViewModel.swift; sourceTree = "<group>"; };
 		B0E6B16E21FED5E800E8C305 /* RealmDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmDB.swift; sourceTree = "<group>"; };
+		B0E6B17121FEE19000E8C305 /* JobRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobRepository.swift; sourceTree = "<group>"; };
 		BDF6C8DD5CA16EEF6BF67893 /* Pods-RepositoryDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepositoryDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RepositoryDemo/Pods-RepositoryDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F635DA29E2F788C3E5D54E4D /* Pods-RepositoryDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepositoryDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepositoryDemoTests/Pods-RepositoryDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC16F44C500544CAA7625772 /* Pods-RepositoryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepositoryDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepositoryDemo/Pods-RepositoryDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				B0E6B14921FEA81200E8C305 /* CustomUIs */,
 				B0E6B15021FEA8C800E8C305 /* Helpers */,
 				B0E6B14621FEA7B200E8C305 /* ViewModels */,
+				B0E6B17021FEE16700E8C305 /* Repositories */,
 				B0E6B13E21FE9BFB00E8C305 /* Models */,
 				B0E6B14121FE9C1600E8C305 /* Services */,
 				B0E6B13821FDEC8200E8C305 /* Supports */,
@@ -255,6 +258,14 @@
 				B0E6B14E21FEA8BD00E8C305 /* Images.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		B0E6B17021FEE16700E8C305 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				B0E6B17121FEE19000E8C305 /* JobRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -445,6 +456,7 @@
 				B0E6B15821FEAAB900E8C305 /* JobsAPI.swift in Sources */,
 				B0E6B14F21FEA8BD00E8C305 /* Images.swift in Sources */,
 				B0E6B16B21FEB50F00E8C305 /* JobPinModel.swift in Sources */,
+				B0E6B17221FEE19000E8C305 /* JobRepository.swift in Sources */,
 				B0E6B16921FEB4E700E8C305 /* JobDetailCell.swift in Sources */,
 				B0E6B15B21FEAB1500E8C305 /* UserDefaults+Enum.swift in Sources */,
 				B0E6B15D21FEAB4900E8C305 /* JobsResponseModel.swift in Sources */,
