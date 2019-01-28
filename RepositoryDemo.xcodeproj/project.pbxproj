@@ -15,6 +15,8 @@
 		B0E6B12221FDEC0700E8C305 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B0E6B12021FDEC0700E8C305 /* LaunchScreen.storyboard */; };
 		B0E6B12D21FDEC0700E8C305 /* RepositoryDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B12C21FDEC0700E8C305 /* RepositoryDemoTests.swift */; };
 		B0E6B13D21FDEE1100E8C305 /* JobListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B13C21FDEE1100E8C305 /* JobListVC.swift */; };
+		B0E6B14021FE9C0400E8C305 /* Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B13F21FE9C0400E8C305 /* Job.swift */; };
+		B0E6B14521FE9C3A00E8C305 /* Realm_Job.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B14421FE9C3A00E8C305 /* Realm_Job.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,8 @@
 		B0E6B12C21FDEC0700E8C305 /* RepositoryDemoTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryDemoTests.swift; sourceTree = "<group>"; };
 		B0E6B12E21FDEC0700E8C305 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B0E6B13C21FDEE1100E8C305 /* JobListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobListVC.swift; sourceTree = "<group>"; };
+		B0E6B13F21FE9C0400E8C305 /* Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Job.swift; sourceTree = "<group>"; };
+		B0E6B14421FE9C3A00E8C305 /* Realm_Job.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Realm_Job.swift; sourceTree = "<group>"; };
 		BDF6C8DD5CA16EEF6BF67893 /* Pods-RepositoryDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepositoryDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RepositoryDemo/Pods-RepositoryDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F635DA29E2F788C3E5D54E4D /* Pods-RepositoryDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepositoryDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepositoryDemoTests/Pods-RepositoryDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC16F44C500544CAA7625772 /* Pods-RepositoryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepositoryDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepositoryDemo/Pods-RepositoryDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -109,6 +113,8 @@
 		B0E6B11621FDEC0200E8C305 /* RepositoryDemo */ = {
 			isa = PBXGroup;
 			children = (
+				B0E6B14121FE9C1600E8C305 /* Services */,
+				B0E6B13E21FE9BFB00E8C305 /* Models */,
 				B0E6B13B21FDECA600E8C305 /* Scenes */,
 				B0E6B13821FDEC8200E8C305 /* Supports */,
 			);
@@ -142,6 +148,38 @@
 				B0E6B13C21FDEE1100E8C305 /* JobListVC.swift */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B0E6B13E21FE9BFB00E8C305 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B0E6B13F21FE9C0400E8C305 /* Job.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B0E6B14121FE9C1600E8C305 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				B0E6B14321FE9C2400E8C305 /* Local */,
+				B0E6B14221FE9C2000E8C305 /* Remote */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		B0E6B14221FE9C2000E8C305 /* Remote */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Remote;
+			sourceTree = "<group>";
+		};
+		B0E6B14321FE9C2400E8C305 /* Local */ = {
+			isa = PBXGroup;
+			children = (
+				B0E6B14421FE9C3A00E8C305 /* Realm_Job.swift */,
+			);
+			path = Local;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -318,6 +356,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0E6B13D21FDEE1100E8C305 /* JobListVC.swift in Sources */,
+				B0E6B14521FE9C3A00E8C305 /* Realm_Job.swift in Sources */,
+				B0E6B14021FE9C0400E8C305 /* Job.swift in Sources */,
 				B0E6B11821FDEC0200E8C305 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
