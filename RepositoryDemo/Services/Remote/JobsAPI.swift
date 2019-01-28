@@ -58,7 +58,6 @@ extension JobsAPI {
                 
                 let jobs = hotJobsModel.jobs
                 let totalCount = hotJobsModel.totalCount
-                completion(.success(jobs, totalCount))
                 
                 RealmDB.shared.puts(jobs, completion: {
                     completion(.success(jobs, totalCount))
@@ -101,7 +100,9 @@ extension JobsAPI {
                     return
                 }
                 
-                completion(.success(job))
+                RealmDB.shared.put(job, completion: {
+                    completion(.success(job))
+                })
                 
             case .failure(let error):
                 print("failed to get job.")
