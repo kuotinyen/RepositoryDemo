@@ -14,13 +14,16 @@ class ShowJobViewModel {
     var jobId: String!
     var reloadDataClosure: (() -> Void)?
     
+    let jobRepository: JobRepository!
+    
     init(jobId: String) {
         self.jobId = jobId
+        self.jobRepository = RepositoryFactory.provideJobRepository()
     }
     
     func loadData() {
-
-        JobRepository.shared.fetchJob(by: jobId) { [weak self] (result) in
+        
+        jobRepository.fetchJob(by: jobId) { [weak self] (result) in
             guard let self = self else { return }
             
             switch result {
@@ -31,6 +34,7 @@ class ShowJobViewModel {
                 print("error -> \(error)")
             }
         }
+        
     }
     
 }

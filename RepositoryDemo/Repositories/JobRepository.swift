@@ -9,40 +9,38 @@
 import Foundation
 import Alamofire
 
-final class JobRepository {
-    private init() {}
-    static let shared = JobRepository()
+protocol LocalJobRepoProtocol {
+    func fetchJob(by jobId: String) -> Job?
 }
 
-// ----------------------------------------------------------------------------------
-/// Fetch Job
-// MARK: - Fetch Job
-// ----------------------------------------------------------------------------------
+protocol RemoteJobRepoProtocol {
+    func fetchJob(by jobId: String, completion: @escaping (Result<Job>) -> ())
+}
 
-extension JobRepository {
+class JobRepository {
     
-    func fetchJob(by jobId: String, completion: @escaping (Result<Job>) -> ()) {
+    var localRepo: LocalJobRepoProtocol!
+    var remoteRepo: RemoteJobRepoProtocol!
+    
+    init(localRepository: LocalJobRepoProtocol, remoteRepository: RemoteJobRepoProtocol) {
+        self.localRepo = localRepository
+        self.remoteRepo = remoteRepository
+    }
+    
+    public func fetchJob(by jobId: String, completion: @escaping (Result<Job>) -> ()) {
         
-        if let localJob = fetchLocalJob(by: jobId) {
+        if let localJob = localRepo.fetchJob(by: jobId) {
             completion(.success(localJob))
             
-            if localJob.timestamp.isExpired() {
-                fetchRemoteJob(by: jobId, completion: completion)
-            }
-            
-        } else {
-            
-            fetchRemoteJob(by: jobId, completion: completion)
+            let shouldFetchFromRemote = localJob.timestamp.isExpired()
+            if (!shouldFetchFromRemote) { return }
         }
-       
+        remoteRepo.fetchJob(by: jobId, completion: completion)
     }
-    
-    private func fetchLocalJob(by jobId: String) -> Job? {
-        return RealmDB.shared.fetchJob(with: jobId)?.entity
-    }
-    
-    private func fetchRemoteJob(by jobId: String, completion: @escaping (Result<Job>) -> ()) {
-        JobsAPI.shared.fetchJob(by: jobId, completion: completion)
-    }
+}
 
+class RepositoryFactory {
+    static func provideJobRepository() -> JobRepository {
+        return JobRepository(localRepository: RealmDB.shared, remoteRepository: JobsAPI.shared)
+    }
 }

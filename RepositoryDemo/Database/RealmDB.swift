@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-final class RealmDB {
+final class RealmDB: LocalJobRepoProtocol {
     
     typealias DBTaskCompletion = (() -> Void)?
     
@@ -26,16 +26,16 @@ final class RealmDB {
 
 extension RealmDB {
     
-    func fetchJob(with jobId: String) -> Realm_Job? {
-        return self.realm.objects(Realm_Job.self).filter("jobId = '\(jobId)'").first
+    public func fetchJob(by jobId: String) -> Job? {
+        return self.realm.objects(Realm_Job.self).filter("jobId = '\(jobId)'").first?.entity
     }
     
-    func puts(_ jobs: [Job], completion: DBTaskCompletion = nil) {
+    public func puts(_ jobs: [Job], completion: DBTaskCompletion = nil) {
         jobs.forEach { put($0) }
         completion?()
     }
     
-    func put(_ job: Job, completion: DBTaskCompletion = nil) {
+    public func put(_ job: Job, completion: DBTaskCompletion = nil) {
         
         if let localJob = updatedLocalJob(with: job) {
             updateJob(localJob, completion: completion)
@@ -45,7 +45,7 @@ extension RealmDB {
     }
     
     private func updatedLocalJob(with job: Job) -> Job? {
-        var localJob = RealmDB.shared.fetchJob(with: job.jobId)?.entity
+        var localJob = RealmDB.shared.fetchJob(by: job.jobId)
         
         if localJob == nil {
             return nil

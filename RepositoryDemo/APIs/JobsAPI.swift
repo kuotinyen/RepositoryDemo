@@ -11,7 +11,7 @@ import Alamofire
 
 let usingExistFcmToken = true
 
-final class JobsAPI {
+final class JobsAPI: RemoteJobRepoProtocol {
     
     private init() {}
     static let shared = JobsAPI()
