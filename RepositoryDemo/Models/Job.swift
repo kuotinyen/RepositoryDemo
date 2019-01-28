@@ -24,7 +24,7 @@ struct Job: Codable {
     var isClosed: Bool?
     var isCollected: Bool = false
     var isBlocked: Bool = false
-    var timestamp: Int = 0
+    var timestamp: Timestamp = 0
     
     enum CodingKeys: String, CodingKey {
         case jobId = "id"
@@ -77,13 +77,7 @@ struct Job: Codable {
         
         isCollected = try vals.decode(Bool.self, forKey: CodingKeys.isCollected)
         
-        timestamp = getTimestamp()
-    }
-    
-    private func getTimestamp() -> Int {
-        let now = Date()
-        let timeInterval = now.timeIntervalSince1970
-        return Int(timeInterval)
+        timestamp = Timestamp.current()
     }
     
     init(jobId: String, title: String, companyName: String, companyImageString: String?,

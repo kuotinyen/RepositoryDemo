@@ -25,8 +25,13 @@ extension JobRepository {
         
         if let localJob = fetchLocalJob(by: jobId) {
             completion(.success(localJob))
-            fetchRemoteJobIfNeeded(job: localJob, completion: completion)
+            
+            if localJob.timestamp.isExpired() {
+                fetchRemoteJob(by: jobId, completion: completion)
+            }
+            
         } else {
+            
             fetchRemoteJob(by: jobId, completion: completion)
         }
        
@@ -38,24 +43,6 @@ extension JobRepository {
     
     private func fetchRemoteJob(by jobId: String, completion: @escaping (Result<Job>) -> ()) {
         JobsAPI.shared.fetchJob(by: jobId, completion: completion)
-    }
-    
-    private func fetchRemoteJobIfNeeded(job: Job, completion: @escaping (Result<Job>) -> ()) {
-        
-        let savedTimestamp = job.timestamp
-        let savedDate = Date(timeIntervalSince1970: TimeInterval(savedTimestamp))
-        
-        let dformatter = DateFormatter()
-        dformatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
-        print("last fetch date: \(dformatter.string(from: savedDate))")
-        
-        let timeIntervalSinceNow = savedDate.timeIntervalSinceNow
-        let secondsLimit = 60 // minute
-        let shouldUpdateJobFromRemote = Int(-timeIntervalSinceNow) > secondsLimit
-        
-        if shouldUpdateJobFromRemote {
-            fetchRemoteJob(by: job.jobId, completion: completion)
-        }
     }
 
 }
