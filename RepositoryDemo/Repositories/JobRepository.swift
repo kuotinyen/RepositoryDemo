@@ -7,7 +7,6 @@
 //
 
 import Foundation
-import Alamofire
 
 protocol LocalJobRepoProtocol {
     func fetchJob(by jobId: String) -> Job?
@@ -32,7 +31,7 @@ class JobRepository {
         if let localJob = localRepo.fetchJob(by: jobId) {
             completion(.success(localJob))
             
-            let shouldFetchFromRemote = localJob.timestamp.isExpired()
+            let shouldFetchFromRemote = TimestampManger.isJobExpired(timestamp: localJob.timestamp)
             if (!shouldFetchFromRemote) { return }
         }
         remoteRepo.fetchJob(by: jobId, completion: completion)

@@ -10,10 +10,10 @@ import Foundation
 
 typealias Timestamp = Int
 
-extension Timestamp {
+class TimestampManger {
     
-    func isExpired() -> Bool {
-        let date = Date(timeIntervalSince1970: TimeInterval(self))
+    static func isJobExpired(timestamp: Timestamp) -> Bool {
+        let date = Date(timeIntervalSince1970: TimeInterval(timestamp))
         
         let dformatter = DateFormatter()
         dformatter.dateFormat = "yyyy/MM/dd HH:mm:ss"
@@ -23,6 +23,10 @@ extension Timestamp {
         let secondsLimit = 60 // minute
         return Int(-timeIntervalSinceNow) > secondsLimit
     }
+    
+}
+
+extension Timestamp {
     
     static func current() -> Timestamp {
         let now = Date()
