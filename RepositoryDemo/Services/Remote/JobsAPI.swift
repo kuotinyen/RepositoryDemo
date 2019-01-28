@@ -71,6 +71,48 @@ extension JobsAPI {
 }
 
 // ----------------------------------------------------------------------------------
+/// Fetch Job
+//  MARK: - Fetch Job
+// ----------------------------------------------------------------------------------
+
+extension JobsAPI {
+    
+    func fetchJob(by jobId: String, completion: @escaping (Result<Job>) -> ()) {
+        
+        let endpoint = "\(baseUrl)/jobs/\(jobId)"
+        
+        Alamofire.request(endpoint, method: .get, headers: headers).responseJSON { (response) in
+            
+            switch response.result {
+            case .success:
+                guard let JSON = response.result.value else {
+                    return
+                }
+                
+                guard let data = try? JSONSerialization.data(withJSONObject: JSON, options: .prettyPrinted) else {
+                    return
+                }
+                
+                guard let job = try? JSONDecoder().decode(Job.self, from: data) else {
+                    return
+                }
+                
+                completion(.success(job))
+                
+            case .failure(let error):
+                print("failed to get job.")
+                print("error message is \(error)")
+                
+                completion(.failure(error))
+            }
+        }
+        
+    }
+    
+}
+
+
+// ----------------------------------------------------------------------------------
 /// Definitions
 //  MARK: - Definitions
 // ----------------------------------------------------------------------------------

@@ -32,6 +32,7 @@
 		B0E6B16821FEB4E700E8C305 /* JobTitleInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B16521FEB4E600E8C305 /* JobTitleInfoCell.swift */; };
 		B0E6B16921FEB4E700E8C305 /* JobDetailCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B16621FEB4E600E8C305 /* JobDetailCell.swift */; };
 		B0E6B16B21FEB50F00E8C305 /* JobPinModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B16A21FEB50F00E8C305 /* JobPinModel.swift */; };
+		B0E6B16D21FEBAFD00E8C305 /* ShowJobViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0E6B16C21FEBAFD00E8C305 /* ShowJobViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,6 +76,7 @@
 		B0E6B16521FEB4E600E8C305 /* JobTitleInfoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobTitleInfoCell.swift; sourceTree = "<group>"; };
 		B0E6B16621FEB4E600E8C305 /* JobDetailCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobDetailCell.swift; sourceTree = "<group>"; };
 		B0E6B16A21FEB50F00E8C305 /* JobPinModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JobPinModel.swift; sourceTree = "<group>"; };
+		B0E6B16C21FEBAFD00E8C305 /* ShowJobViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowJobViewModel.swift; sourceTree = "<group>"; };
 		BDF6C8DD5CA16EEF6BF67893 /* Pods-RepositoryDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepositoryDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-RepositoryDemo/Pods-RepositoryDemo.release.xcconfig"; sourceTree = "<group>"; };
 		F635DA29E2F788C3E5D54E4D /* Pods-RepositoryDemoTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepositoryDemoTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepositoryDemoTests/Pods-RepositoryDemoTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FC16F44C500544CAA7625772 /* Pods-RepositoryDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RepositoryDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RepositoryDemo/Pods-RepositoryDemo.debug.xcconfig"; sourceTree = "<group>"; };
@@ -223,8 +225,9 @@
 		B0E6B14621FEA7B200E8C305 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
-				B0E6B16021FEAC6800E8C305 /* HotJobsViewModel.swift */,
 				B0E6B14721FEA7EF00E8C305 /* JobListCellViewModel.swift */,
+				B0E6B16021FEAC6800E8C305 /* HotJobsViewModel.swift */,
+				B0E6B16C21FEBAFD00E8C305 /* ShowJobViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -425,6 +428,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0E6B13D21FDEE1100E8C305 /* JobListVC.swift in Sources */,
+				B0E6B16D21FEBAFD00E8C305 /* ShowJobViewModel.swift in Sources */,
 				B0E6B14B21FEA82B00E8C305 /* JobListCell.swift in Sources */,
 				B0E6B16121FEAC6800E8C305 /* HotJobsViewModel.swift in Sources */,
 				B0E6B14D21FEA8A500E8C305 /* JobListCell+Helper.swift in Sources */,

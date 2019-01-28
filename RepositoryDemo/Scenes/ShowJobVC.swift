@@ -30,10 +30,10 @@ class ShowJobVC: UIViewController {
     }()
     
     var cells: [CellItem] = [.jobTitleInfo, .jobMapInfo, .jobDetail]
-    var job: Job!
+    let viewModel: ShowJobViewModel!
     
     init(job: Job) {
-        self.job = job
+        self.viewModel = ShowJobViewModel(job: job)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,8 +41,23 @@ class ShowJobVC: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        viewModel.loadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        viewModel.reloadDataClosure = { [weak self] in
+            guard let self = self else { return }
+            
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+            
+        }
         
         setupViews()
     }
@@ -88,7 +103,7 @@ extension ShowJobVC: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellVM = JobListCellViewModel(job: job)
+        let cellVM = JobListCellViewModel(job: viewModel.job)
         
         switch cells[indexPath.row] {
         case .jobTitleInfo:
@@ -116,7 +131,8 @@ extension ShowJobVC: UITableViewDataSource, UITableViewDelegate {
 extension ShowJobVC {
     
     private func getCellsCount() -> Int {
-        let hasRequirement = job.requirement != nil && job.requirement?.count != 0
+        let hasRequirement = viewModel.job.requirement != nil
+            && viewModel.job.requirement?.count != 0
         return hasRequirement ? 3 : 2
     }
     
