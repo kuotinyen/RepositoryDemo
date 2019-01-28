@@ -79,7 +79,7 @@ extension JobListVC: UITableViewDataSource, UITableViewDelegate {
         let selectedVM = hotJobsVM.displayViewModels[indexPath.row]
         guard let job = selectedVM.job else { return }
         
-        let vc = ShowJobVC(job: job)
+        let vc = ShowJobVC(jobId: job.jobId)
         navigationController?.pushViewController(vc, animated: true)
     }
     

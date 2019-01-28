@@ -32,8 +32,8 @@ class ShowJobVC: UIViewController {
     var cells: [CellItem] = [.jobTitleInfo, .jobMapInfo, .jobDetail]
     let viewModel: ShowJobViewModel!
     
-    init(job: Job) {
-        self.viewModel = ShowJobViewModel(job: job)
+    init(jobId: String) {
+        self.viewModel = ShowJobViewModel(jobId: jobId)
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -44,7 +44,7 @@ class ShowJobVC: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        if let job = RealmDB.shared.fetchJob(with: viewModel.job.jobId) {
+        if let job = RealmDB.shared.fetchJob(with: viewModel.jobId) {
             print("local job -> \(job.entity)")
         } else {
             print("no local job")
@@ -137,8 +137,8 @@ extension ShowJobVC: UITableViewDataSource, UITableViewDelegate {
 extension ShowJobVC {
     
     private func getCellsCount() -> Int {
-        let hasRequirement = viewModel.job.requirement != nil
-            && viewModel.job.requirement?.count != 0
+        let hasRequirement = viewModel.job?.requirement != nil
+            && viewModel.job?.requirement?.count != 0
         return hasRequirement ? 3 : 2
     }
     

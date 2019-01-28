@@ -10,15 +10,16 @@ import Foundation
 
 class ShowJobViewModel {
     
-    var job: Job!
+    var job: Job?
+    var jobId: String!
     var reloadDataClosure: (() -> Void)?
     
-    init(job: Job) {
-        self.job = job
+    init(jobId: String) {
+        self.jobId = jobId
     }
     
     func loadData() {
-        JobsAPI.shared.fetchJob(by: job.jobId) { [weak self] (result) in
+        JobsAPI.shared.fetchJob(by: jobId) { [weak self] (result) in
             guard let self = self else { return }
             
             switch result {
